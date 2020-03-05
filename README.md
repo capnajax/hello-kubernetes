@@ -37,8 +37,24 @@ docker push capnajax/hello-kubernetes
 helm create chart # creates a chart named "chart"
 ```
 
-Edit the templates and values in the chart folder and run a test install
+Edit the templates and values in the chart folder and run a test install. This builds an example that you may either modify or use as a reference.
 
 ```sh
 helm install --dry-run --debug ./chart
 ```
+
+## Create the kubernetes deployment
+
+In this repo, I am building the kubernetes deployments and then using it to create a new chart.
+
+Build a deployment with:
+
+```sh
+kubectl create deployment hello-kubernetes --image=capnajax/hello-kubernetes 
+```
+Already you have a complete set of pods on your system. Now you can take the deployment descriptors, etc, and add them to your helm charts. Save the deployment yaml into a helm chart. Then create the other configuration yamls to apply to kubernetes resources.
+
+
+
+
+
